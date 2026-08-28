@@ -80,15 +80,16 @@
     if (!input) return;
     normalizeQuantityInput(input);
     if (input.value === '') return;
-    const digits = input.value.replace(/\D/g, '');
-    const quantity = Math.max(1, Number.parseInt(digits || '1', 10));
+    const numeric = Number(input.value);
+    const quantity = Number.isFinite(numeric) ? Math.max(1, Math.floor(numeric)) : 1;
     if (input.value !== String(quantity)) input.value = String(quantity);
   }, true);
 
   document.addEventListener('blur', (event) => {
     const input = event.target.closest?.('.item-qty input');
     if (!input) return;
-    const quantity = Math.max(1, Number.parseInt(input.value || '1', 10) || 1);
+    const numeric = Number(input.value);
+    const quantity = Number.isFinite(numeric) ? Math.max(1, Math.floor(numeric)) : 1;
     input.value = String(quantity);
     input.dispatchEvent(new Event('input', { bubbles: true }));
   }, true);
@@ -124,7 +125,7 @@
 
     if (actionNote) {
       actionNote.textContent = intent === 'pdf'
-        ? 'In the system print dialog, choose “Save as PDF” / “Microsoft Print to PDF”.'
+        ? 'Choose “Save as PDF” / “Microsoft Print to PDF”. For the cleanest receipt, turn off browser headers and footers.'
         : 'Choose any printer or receipt device connected to this computer or phone.';
     }
 
