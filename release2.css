@@ -1,0 +1,84 @@
+/* Release 2 enhancements layered on top of the Release 1 visual system. */
+.suggestion.typed-item-first {
+  background: #fffaf0;
+  border-bottom: 1px solid #eadfbd;
+  box-shadow: inset 3px 0 0 #9a7a2f;
+}
+.suggestion.typed-item-first:hover,
+.suggestion.typed-item-first.active { background: #fff6df; }
+.suggestion.typed-item-first .suggestion-main strong { color: #3e3218; }
+.suggestion.typed-item-first .suggestion-badge {
+  color: #59491f;
+  background: #f5e9bf;
+  white-space: nowrap;
+}
+
+.printer-device-card {
+  margin-top: 12px;
+  padding: 14px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: #f8faf9;
+}
+.printer-device-copy { min-width: 0; }
+.printer-device-copy strong { display: block; font-size: .83rem; color: #2f3e37; }
+.printer-device-copy span { display: block; margin-top: 3px; color: var(--muted); font-size: .72rem; line-height: 1.4; }
+.printer-device-button {
+  min-height: 42px;
+  padding: 0 13px;
+  border: 1px solid #bfcac4;
+  border-radius: 10px;
+  background: white;
+  color: #31483f;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.printer-device-button:hover { background: #eef5f1; }
+
+.release-footer {
+  align-items: flex-start;
+  gap: 18px;
+  padding-top: 6px;
+}
+.footer-product { display: grid; gap: 3px; }
+.footer-product strong { color: #58636b; font-size: .78rem; }
+.footer-owner {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  text-align: right;
+}
+.footer-owner strong { color: #4d5962; }
+.footer-owner a {
+  color: #546f64;
+  text-decoration: none;
+  font-weight: 700;
+}
+.footer-owner a:hover { text-decoration: underline; }
+.release-badge {
+  display: inline-flex;
+  width: fit-content;
+  margin-top: 4px;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: #e9f1ed;
+  color: #376151;
+  font-size: .65rem;
+  font-weight: 800;
+}
+
+@media (max-width: 760px) {
+  .printer-device-card { grid-template-columns: 1fr; }
+  .printer-device-button { width: 100%; }
+  .release-footer { flex-direction: column; align-items: center; text-align: center; }
+  .footer-owner { justify-content: center; text-align: center; }
+}
+
+@media print {
+  .printer-device-card, .release-footer { display: none !important; }
+}
