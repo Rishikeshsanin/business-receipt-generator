@@ -6,6 +6,7 @@
   <meta name="description" content="Create professional business receipts privately in your browser. No signup, no saved data." />
   <title>Business Receipt Generator</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="release2.css" />
 </head>
 <body>
   <header class="topbar">
@@ -78,13 +79,13 @@
           <span class="eyebrow">Step 2</span>
           <h2>Add items</h2>
         </div>
-        <span class="microcopy">Search anything, not just your niche</span>
+        <span class="microcopy">Your exact typed item is always first</span>
       </div>
 
       <div class="item-search-wrap">
         <label class="field item-search-field">
           <span>Item or service</span>
-          <input id="itemSearch" type="text" autocomplete="off" placeholder="Try “coffee”, “charger”, “hair cut”…" role="combobox" aria-expanded="false" aria-controls="suggestions" aria-autocomplete="list" />
+          <input id="itemSearch" type="text" autocomplete="off" placeholder="Try “Parle biscuits”, “charger”, “hair cut”…" role="combobox" aria-expanded="false" aria-controls="suggestions" aria-autocomplete="list" />
         </label>
         <div id="suggestions" class="suggestions" role="listbox" hidden></div>
       </div>
@@ -92,7 +93,7 @@
       <div id="itemsEmpty" class="items-empty">
         <div class="empty-icon" aria-hidden="true">＋</div>
         <strong>No items yet</strong>
-        <span>Start typing above. Suggestions update with every character.</span>
+        <span>Type the exact product, brand, service, or a generic item. Suggestions update with every character.</span>
       </div>
       <div id="itemsList" class="items-list" aria-live="polite"></div>
 
@@ -210,20 +211,38 @@
       </div>
 
       <div class="action-grid">
-        <button class="primary-action" id="downloadPdfBtn" type="button">Download PDF</button>
-        <button class="secondary-action" id="printBtn" type="button">Print</button>
+        <button class="primary-action" id="downloadPdfBtn" type="button">Save as PDF</button>
+        <button class="secondary-action" id="printBtn" type="button">Print receipt</button>
       </div>
-      <p class="action-note" id="actionNote">PDF creation happens entirely in your browser.</p>
+      <p class="action-note" id="actionNote">Nothing is uploaded. PDF and printing use your browser/system print tools.</p>
+
+      <div class="printer-device-card">
+        <div class="printer-device-copy">
+          <strong>Use a printer or receipt device</strong>
+          <span>Choose any printer already connected to your computer or phone from the system print dialog.</span>
+        </div>
+        <button class="printer-device-button" id="printerDeviceBtn" type="button">Choose printer / device</button>
+      </div>
     </aside>
   </main>
 
-  <footer class="site-footer">
-    <span>Business Receipt Generator</span>
-    <span>Private • Stateless • No account</span>
+  <footer class="site-footer release-footer">
+    <div class="footer-product">
+      <strong>Business Receipt Generator</strong>
+      <span>Private • Stateless • No account</span>
+      <span class="release-badge">Release 2</span>
+    </div>
+    <div class="footer-owner" aria-label="Creator contact details">
+      <strong>Rishikesh M</strong>
+      <a href="tel:+919059076106">9059076106</a>
+      <a href="mailto:rishikeshjonin@gmail.com">rishikeshjonin@gmail.com</a>
+      <a href="https://github.com/Rishikeshsanin/business-receipt-generator" target="_blank" rel="noopener noreferrer">GitHub repository</a>
+    </div>
   </footer>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="app.js"></script>
+  <script src="release2.js"></script>
 </body>
 </html>
